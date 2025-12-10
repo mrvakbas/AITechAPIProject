@@ -1,0 +1,38 @@
+﻿@model List<ResultFAQDto>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+            <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Popüler SSS</div>
+            <h1 class="mb-4">Sıkça Sorulan Sorular</h1>
+        </div>
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+
+                var uniqueId = "FAQ-" + item.Id;
+                var headingId = "heading-" + uniqueId;
+                var collapseId = "collapse-" + uniqueId;
+                <div class="col-lg-12">
+                    <div class="accordion" id="accordionFAQList">
+                        <div class="accordion-item wow fadeIn" data-wow-delay="0.1s">
+                            <h2 class="accordion-header" id="@headingId">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#@collapseId" aria-expanded="false" aria-controls="@collapseId">
+                                    @item.Question
+                                </button>
+                            </h2>
+                            <div id="@collapseId" class="accordion-collapse collapse" aria-labelledby="@headingId"
+                                 data-bs-parent="#accordionFAQList">
+                                <div class="accordion-body">
+                                    @item.Answer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

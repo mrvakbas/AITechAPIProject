@@ -1,0 +1,32 @@
+﻿@model List<ResultAboutDto>
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="about-img">
+                    <img class="img-fluid" src="/AI-html-1.0.0/img/about-img.jpg">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                @foreach (var item in Model)
+                {
+                    <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Hakkımızda</div>
+                    <h1 class="mb-4">@item.Title</h1>
+                    <p class="mb-4">
+                     @item.Description
+                    </p>
+                }
+
+                @await Component.InvokeAsync("_AboutItemComponentPartial")
+
+                <div class="d-flex align-items-center mt-4">
+
+                    <a class="btn btn-primary rounded-pill px-4 me-3" href="">Devamını Oku</a>
+
+                    @await Component.InvokeAsync("_SocialSectionComponentPartial")
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html lang="tr-TR" class="semi-dark">
+
+@await Component.InvokeAsync("_AdminLayoutHeadPartial")
+
+<body>
+
+	<div class="wrapper">
+
+		@await Component.InvokeAsync("_AdminLayoutHeaderPartial")
+
+		@await Component.InvokeAsync("_AdminLayoutSidebarPartial")
+
+		<main class="page-content">
+
+			@RenderBody()
+
+		</main>
+
+		<div class="overlay nav-toggle-icon"></div>
+		<a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+
+	</div>
+
+	@await Component.InvokeAsync("_AdminLayoutScriptsPartial")
+
+</body>
+</html>

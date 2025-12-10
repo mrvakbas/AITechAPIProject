@@ -1,0 +1,40 @@
+﻿@model List<ResultChooseDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+	int count = 0;
+}
+
+<h3>Hakkımda</h3>
+
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Başlık</th>
+		<th>Açıklama</th>
+		<th>Resim Url</th>
+		<th>Item1</th>
+		<th>Item2</th>
+		<th>Item3</th>
+		<th>İşlemler</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		count++;
+		<tr>
+			<th>@count</th>
+			<td>@item.Title</td>
+			<td>@item.Description</td>
+			<td>@item.ImageUrl</td>
+			<td>@item.Item1</td>
+			<td>@item.Item2</td>
+			<td>@item.Item3</td>
+			<td>
+				<a href="/Admin/Choose/DeleteChoose/@item.Id" class="btn btn-outline-danger">Sil</a>
+				<a href="/Admin/Choose/UpdateChoose/@item.Id" class="btn btn-outline-success">Güncelle</a>
+			</td>
+		</tr>
+	}
+</table>
+<a href="/Admin/Choose/CreateChoose/" class="btn btn-outline-primary">Yeni Choose Oluştur</a>

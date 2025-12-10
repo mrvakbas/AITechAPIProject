@@ -1,0 +1,34 @@
+﻿@model List<ResultSocialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+	int count = 0;
+}
+
+<h3>Sosyal Medya</h3>
+
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Başlık</th>
+		<th>İkon</th>
+		<th>Url</th>
+		<th>İşlemler</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		count++;
+		<tr>
+			<th>@count</th>
+			<td> <i class="@item.Icon"></i> </td>
+			<td>@item.Name</td>
+			<td>@item.Url</td>
+			<td>
+				<a href="/Admin/Social/DeleteSocial/@item.Id" class="btn btn-outline-danger">Sil</a>
+				<a href="/Admin/Social/UpdateSocial/@item.Id" class="btn btn-outline-success">Güncelle</a>
+			</td>
+		</tr>
+	}
+</table>
+<a href="/Admin/Social/CreateSocial/" class="btn btn-outline-primary">Yeni Sosyal Medya Oluştur</a>
